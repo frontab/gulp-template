@@ -1,7 +1,14 @@
 {
 	"name": "gulp-template",
 	"version": "0.0.1",
-	"scripts": {},
 	"author": "Andrey Bondarenkov <me@bondarenkov.ru>",
-	"license": "ISC"
+	"license": "ISC",
+	"scripts": {
+		"prepare": "husky install"
+	},
+	"lint-staged": {},
+	"devDependencies": {
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.1"
+	}
 }
