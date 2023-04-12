@@ -10,4 +10,8 @@ export const config = {
 	clean: {
 		src: `${buildPath}`,
 	},
+
+	server: {
+		baseDir: `${buildPath}`,
+	},
 };
