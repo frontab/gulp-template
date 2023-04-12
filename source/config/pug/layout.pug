@@ -1,0 +1,25 @@
+block config
+	include config
+
+block variables
+
+include ../../components/header/header
+include ../../components/footer/footer
+
+doctype html
+html(lang="ru")
+	include head
+	body(class= bodyClass)
+		.page
+			+header().page__header
+			main.page__content
+				block main
+			+footer().page__footer
+
+		block modals
+
+		block scripts
+			script(src="./js/script.min.js")
+
+			if script
+				script(src=`./js/${script}.min.js`)

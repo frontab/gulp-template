@@ -14,4 +14,10 @@ export const config = {
 	server: {
 		baseDir: `${buildPath}`,
 	},
+
+	pug: {
+		src: `${sourcePath}/pages/**/*.pug`,
+		dest: `${buildPath}`,
+		watch: [`${sourcePath}/**/*.pug`],
+	},
 };
