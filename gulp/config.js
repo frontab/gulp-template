@@ -1,0 +1,9 @@
+const buildPath = './build';
+const prebuildPath = '/prebuild';
+const sourcePath = './source';
+
+export const config = {
+	buildPath,
+	prebuildPath,
+	sourcePath,
+};
