@@ -6,4 +6,8 @@ export const config = {
 	buildPath,
 	prebuildPath,
 	sourcePath,
+
+	clean: {
+		src: `${buildPath}`,
+	},
 };
