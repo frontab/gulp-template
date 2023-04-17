@@ -8,7 +8,7 @@ export const config = {
 	sourcePath,
 
 	clean: {
-		src: `${buildPath}`,
+		src: [`${buildPath}`],
 	},
 
 	server: {
