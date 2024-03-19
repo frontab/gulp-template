@@ -2,6 +2,8 @@
 /pre-build/
 /node_modules/
 
+/source/config/pug/_data.pug
+/source/config/pug/_mixins.pug
 /source/config/pug/_fonts.pug
 
 *.sublime*
