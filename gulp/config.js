@@ -43,6 +43,22 @@ const config = {
     },
   },
 
+  pug: {
+    src: `${sourceFolder}/pages/**/*.pug`,
+    dest: buildFolder,
+    watch: `${sourceFolder}/**/*.pug`,
+    data: {
+      srcFolder: `${sourceFolder}/data`,
+      dest: `${sourceFolder}/config/pug/_data.pug`,
+      watch: `${sourceFolder}/data`,
+    },
+    mixins: {
+      srcFolder: `${sourceFolder}/components`,
+      dest: `${sourceFolder}/config/pug/_mixins.pug`,
+      watch: `${sourceFolder}/components`,
+    },
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');
