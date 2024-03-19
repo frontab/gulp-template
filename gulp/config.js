@@ -11,6 +11,10 @@ const config = {
     build: buildFolder,
   },
 
+  server: {
+    baseDir: buildFolder,
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');

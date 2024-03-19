@@ -3,10 +3,7 @@ import config from '../config';
 
 const clean = (cb) => {
   fs.stat(config.clean.build, (err) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
+    if (err) return;
 
     fs.rm(config.clean.build, { recursive: true }, (err) => {
       if (err) console.log(err);
