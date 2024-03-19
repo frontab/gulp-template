@@ -1,0 +1,12 @@
+{
+  "name": "gulp-template",
+  "version": "0.0.1",
+  "description": "Frontend gulp-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontab/gulp-template.git"
+  },
+  "author": "Frontab",
+  "license": "ISC",
+  "scripts": {}
+}
