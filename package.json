@@ -8,5 +8,13 @@
   },
   "author": "Frontab",
   "license": "ISC",
-  "scripts": {}
+  "scripts": {
+    "start": "gulp dev",
+    "build": "gulp build",
+    "release": "gulp build --release"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2"
+  }
 }
