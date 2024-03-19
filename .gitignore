@@ -1,0 +1,11 @@
+/build/
+/pre-build/
+/node_modules/
+
+*.sublime*
+.DS_Store
+.idea
+.vscode
+
+.npm-debug.*
+Thumbs.db
