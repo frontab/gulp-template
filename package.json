@@ -15,8 +15,10 @@
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
+    "del": "^6.1.0",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
-    "gulp-plumber": "^1.2.1"
+    "gulp-plumber": "^1.2.1",
+    "gulp-ttf2woff2": "^4.0.1"
   }
 }

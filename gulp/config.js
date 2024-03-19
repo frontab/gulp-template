@@ -28,6 +28,21 @@ const config = {
     ],
   },
 
+  fonts: {
+    src: `${sourceFolder}/assets/fonts/**/*.woff2`,
+    dest: `${buildFolder}/fonts`,
+    watch: `${sourceFolder}/assets/fonts/**/*.woff2`,
+    convert: {
+      src: `${sourceFolder}/assets/fonts/**/*.ttf`,
+      dest: `${sourceFolder}/assets/fonts`,
+      watch: `${sourceFolder}/assets/fonts/**/*.ttf`,
+    },
+    config: {
+      srcFolder: `${sourceFolder}/assets/fonts`,
+      dest: `${sourceFolder}/config/pug/_fonts.pug`,
+    },
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');
