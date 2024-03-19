@@ -1,0 +1,18 @@
+block config
+  include config
+
+include _data
+include _mixins
+
+doctype html
+html(lang="ru")
+  include head
+
+  body(class= bodyClass)
+    .page
+      include ../../blocks/header/header
+      main.page__content
+        block main
+      include ../../blocks/footer/footer
+
+    block modals
