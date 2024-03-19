@@ -1,16 +1,6 @@
-import fs from 'fs';
+import del from 'del';
 import config from '../config';
 
-const clean = (cb) => {
-  fs.stat(config.clean.build, (err) => {
-    if (err) return;
-
-    fs.rm(config.clean.build, { recursive: true }, (err) => {
-      if (err) console.log(err);
-    });
-  });
-
-  cb();
-};
+const clean = (cb) => del(config.clean.build);
 
 export { clean };
