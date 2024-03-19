@@ -15,6 +15,19 @@ const config = {
     baseDir: buildFolder,
   },
 
+  copy: {
+    base: `${sourceFolder}/assets`,
+    src: [
+      `${sourceFolder}/assets/favicon/*.{png,xml,ico,svg,webmanifest}`,
+      `${sourceFolder}/assets/files/**/*.*`,
+    ],
+    dest: buildFolder,
+    watch: [
+      `${sourceFolder}/assets/favicon/*.{png,xml,ico,svg,webmanifest}`,
+      `${sourceFolder}/assets/files/**/*.*`,
+    ],
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');
