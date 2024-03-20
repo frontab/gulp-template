@@ -1,0 +1,32 @@
+.picture--lazy {
+  --lazy-background-gradient:
+    linear-gradient(120deg,
+      var(--background-secondary-lighter) 30%,
+      var(--background-secondary) 38%,
+      var(--background-secondary) 40%,
+      var(--background-secondary-lighter) 48%
+    );
+
+  position: relative;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image: var(--lazy-background-gradient);
+    background-position: 100% 0;
+    background-size: 500% 100%;
+    animation: picture-lazy 2s infinite;
+    content: '';
+  }
+
+  @keyframes picture-lazy {
+    0% {
+      background-position: 100% 0;
+    }
+
+    100% {
+      background-position: 0 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+mixin input(param)
+  -
+    const paramDefault = {
+      id: false,                //- id обёртки (string)
+      class: false,             //- класс для тега (string)
+      tag: 'input',             //- указывает таг (string)
+      type: 'text',             //- указывает значение атрибута type (string)
+      dataType: false,          //- указывает значение атрибута data-type (string)
+      placeholder: false,       //- указывает значение атрибута placeholder (string)
+      mods: false,              //- модификатор стиля кнопки [ string | [string, string] ]
+      value: false,             //- указывает значение атрибута value (string)
+      isRequired: false,        //- определяет является ли поле обязательным (boolean)
+    }
+
+    const input = { ...paramDefault, ...param }
+
+  if (input.tag === 'input')
+    input(
+      type= input.type
+      id= input.id
+      data-type= input.dataType
+      value= input.value
+      placeholder= input.placeholder
+      class= "input"
+      class= (input.mods
+        && ((typeof input.mods === 'string')
+          ? `input--${input.mods}`
+          : input.mods.map((mod) => `input--${mod}`)))
+      class= input.class
+      required= input.isRequired
+    )&attributes(attributes)
+
+  else
+    #{input.tag}(
+      id= input.id
+      data-type= input.dataType
+      value= input.value
+      placeholder= input.placeholder
+      class= "input"
+      class= (input.mods
+        && ((typeof input.mods === 'string')
+          ? `input--${input.mods}`
+          : input.mods.map((mod) => `input--${mod}`)))
+      class= input.class
+      required= input.isRequired
+    )&attributes(attributes)
+      block

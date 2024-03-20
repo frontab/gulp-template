@@ -1,0 +1,16 @@
+.field {
+  display: block;
+}
+
+.field__name {
+  // colors
+  --field-name-color: var(--text-primary);
+
+  // sizes
+  --field-name-margin: 0 0 var(--spacing-x-small) 0;
+
+  display: block;
+  margin: var(--field-name-margin);
+}
+
+// .field__input {}

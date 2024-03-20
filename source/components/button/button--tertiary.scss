@@ -1,0 +1,16 @@
+.button--tertiary {
+  // color
+  --button-color: var(--text-primary-on-color);
+  --button-color-hover: var(--text-primary-on-color-hover);
+  --button-color-active: var(--text-primary-on-color-hover);
+
+  // background
+  --button-background-color: var(--background-alternate);
+  --button-background-color-hover: var(--background-alternate-hover);
+  --button-background-color-active: var(--background-alternate-active);
+
+  // border
+  --button-border-color: transparent;
+  --button-border-color-hover: transparent;
+  --button-border-color-active: transparent;
+}

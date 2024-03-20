@@ -1,0 +1,66 @@
+mixin field(param)
+  -
+    const paramDefault = {
+      isWrap: true,             //- указывает наличие обёртки (boolean)
+      tag: 'label',             //- тег обёртки (string)
+      id: false,                //- id обёртки (string)
+      class: false,             //- класс обёртки (string)
+      for: false,               //- значение атрибута for (string)
+      mods: false,              //- модификаторы стилей обёртки [ string | [string, string] ]
+      blockPosition: 'after',           //- определяет место вставки блока контента [ false, 'before' | 'after' ]
+
+      name: false,              //- устанавливает значение для имени поля (string)
+      nameClass: false,         //- задаёт класс для имени поля (string)
+      nameMods: false,          //- модификаторы стилей имени поля [ string | [string, string] ]
+
+      isInput: true,            //- определяет наличие input (boolean)
+    }
+
+    const field = { ...paramDefault, ...param}
+    const input = { ...paramDefault.input, ...param.input }
+    const button = { ...paramDefault.button, ...param.button }
+
+  if (field.isWrap !== false)
+    #{field.tag}(
+      id= field.id
+      class= "field"
+      class= (field.mods
+        && ((typeof field.mods === 'string')
+          ? `field--${field.mods}`
+          : field.mods.map((mod) => `field--${mod}`)))
+      class= field.class
+    )&attributes(attributes)
+      if field.blockPosition === 'before'
+        block
+
+      if field.name
+        span(
+          class= "field__name"
+          class= (field.nameMods
+            && ((typeof field.nameMods === 'string')
+              ? `field--${field.nameMods}`
+              : field.nameMods.map((mod) => `field__name--${mod}`)))
+          class= field.nameClass
+        )!= field.name
+
+      if field.isInput
+        if field.input && field.input.tag === 'select'
+          +select(input)(class="field__input")
+        else
+          +input(input)(class="field__input")
+
+      if field.blockPosition === 'after'
+        block
+
+  else
+    if field.blockPosition === 'before'
+      block
+
+    if field.isInput
+      if field.input && field.input.tag === 'select'
+        +select(input)(class="field__input")
+      else
+        +input(input)(class="field__input")
+
+    if field.blockPosition === 'after'
+      block

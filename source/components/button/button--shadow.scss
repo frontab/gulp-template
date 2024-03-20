@@ -1,0 +1,16 @@
+.button--shadow {
+  // color
+  --button-color: var(--text-accent);
+  --button-color-hover: var(--text-accent);
+  --button-color-active: var(--text-accent);
+
+  // background
+  --button-background-color: transparent;
+  --button-background-color-hover: var(--background-secondary);
+  --button-background-color-active: var(--background-alternate);
+
+  // border
+  --button-border-color: transparent;
+  --button-border-color-hover: transparent;
+  --button-border-color-active: transparent;
+}

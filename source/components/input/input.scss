@@ -1,0 +1,54 @@
+.input {
+  // colors
+  --input-background-color: transparent;
+  --input-border-color: var(--border-primary);
+  --input-border-color-hover: var(--border-primary-hover);
+  --input-border-color-active: var(--border-primary-active);
+  --input-border-color-focus: var(--border-accent);
+  --input-placeholder-color: var(--text-light);
+  --input-text-color: var(--text-primary);
+
+  // sizes
+  --input-height: var(--spacing-xx-large);
+  --input-border-radius: var(--spacing-xx-small);
+  --input-padding: 0 var(--spacing-medium);
+
+  // effects
+  --input-transition: var(--transition-primary);
+
+  position: relative;
+  width: 100%;
+  height: var(--input-height);
+  padding: var(--input-padding);
+  color: var(--input-text-color);
+  background-color: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  transition: border-color var(--input-transition),
+              background-color var(--input-transition),
+              color var(--input-transition);
+
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  @include hover {
+    border-color: var(--input-border-color-hover);
+  }
+
+  @include active {
+    border-color: var(--input-border-color-active);
+  }
+
+  @include focus {
+    border-color: var(--input-border-color-focus);
+  }
+}
+
+.input__error {
+  --input-error-color: var(--text-danger);
+  --input-error-font-size: .75rem;
+
+  color: var(--input-error-color);
+  font-size: var(--input-error-font-size);
+}

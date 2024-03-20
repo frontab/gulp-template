@@ -1,0 +1,84 @@
+-
+  const pixel = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=';
+
+mixin source(value, isLazy)
+  source(
+    srcset= (isLazy
+      ? pixel
+      : value
+    )
+    data-srcset= isLazy && value
+  )&attributes(attributes)
+
+mixin picture(name, param)
+  -
+    //- name                              название изображения
+    const paramDefault = {
+      isContent: true,                //- определяет является ли изображение контентрым, а именно из папки content (boolean)
+      folder: false,                  //- указывает папку с изображениями (string)
+      format: 'jpg',                  //- задаёт рашсирение изображения (string)
+      class: false,                   //- классы для тега picture (string)
+      alt: 'Изображение',             //- атрибут alt для изображения (string)
+      title: false,                   //- задаёт атрибут title для img (string)
+      width: false,                   //- ширина тега img (number)
+      height: false,                  //- высота тега img (number)
+      isWebp: true,                   //- определяет должно ли содержаться webp изображение (boolean)
+      is2x: true,                     //- определяет должно ли содержаться 2x изображение (boolean)
+      suffix2x: '@2x',                //- определяет суффикс для изображений 2x
+      responsive: false,              //- задаёт параметры дляизображений для адаптива (array)
+      lazy: true,                     //- определяет наличие ленивой загрузки и прелоадера (boolean)
+    }
+
+    const picture = { name, ...paramDefault, ...param }
+    picture.path = 'images' + (picture.isContent ? '/content' : '') + (picture.folder ? `/${picture.folder}` : '');
+
+  picture(
+    class= "picture"
+    class= picture.lazy && 'picture--lazy'
+    class= picture.class
+  )&attributes(attributes)
+    //- адаптивные изображения
+    if picture.responsive
+      each point in picture.responsive
+        if picture.isWebp
+          -
+            const value = (
+              `${picture.path}/${picture.name}--${point}.webp`
+              +`${picture.is2x ? (', ' + picture.path + '/' + picture.name + picture.suffix2x + '--' + point + '.webp 2x') : ''}`
+            );
+          +source(value, picture.lazy)(
+            type="image/webp"
+            media= `(min-width: ${breakpoints[point]}px)`
+          )
+        -
+          const value = (
+            `${picture.path}/${picture.name}--${point}.${picture.format}`
+            +`${picture.is2x ? (', ' + picture.path + '/' + picture.name + picture.suffix2x + '--' + point + '.' + picture.format + ' 2x') : ''}`
+          );
+        +source(value, picture.lazy)(
+          media= `(min-width: ${breakpoints[point]}px)`
+        )
+
+    if picture.isWebp
+      -
+        const value = (
+          `${picture.path}/${picture.name}.webp`
+          +`${picture.is2x ? (', ' + picture.path + '/' + picture.name + picture.suffix2x + '.webp 2x') : ''}`
+        );
+      +source(value, picture.lazy)(
+        type="image/webp"
+      )
+    img(
+      src= (picture.lazy
+        ? pixel
+        : `${picture.path}/${picture.name}.${picture.format}`)
+      data-src= picture.lazy && (`${picture.path}/${picture.name}.${picture.format}`)
+      srcset= (picture.lazy
+        ? pixel
+        : picture.is2x && `${picture.path}/${picture.name}.${picture.format} 2x`)
+      data-srcset= picture.lazy && (picture.is2x && `${picture.path}/${picture.name}.${picture.format} 2x`)
+      alt= picture.alt
+      width= picture.width
+      height= picture.height
+      title= picture.title
+    )

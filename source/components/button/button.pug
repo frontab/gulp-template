@@ -1,0 +1,40 @@
+mixin button(param)
+  -
+    const paramDefault = {
+      tag: 'button',            //- тег кнопки [ button | a ] (string)
+      type: 'button',           //- атрибут type для кнопки с tag: "button" (string)
+      href: '#',                //- атрибут href для кнопки с tag: "a" (string)
+      id: false,                //- id тега (string)
+      classIcon: false,         //- класс иконки к тегу кнопки [ 'iconName' | { iconName: '', type: [ 'default-mono' | 'default-multi' | ... ] } ]
+      class: false,             //- дополнительные классы для кнопки (string)
+      value: 'Button',          //- текст кнопки (string)
+      mods: false,              //- модификатор стиля кнопки [ string | [string, string] ]
+      icon: false,              //- иконка для кнопки [ false | { class: '', name: '', position: [ 'before' | 'after' ] } ]
+      title: false,             //- значение атрибута title (string)
+    }
+
+    const button = { ...paramDefault, ...param}
+
+  #{button.tag}(
+    type= (button.tag === "button") && button.type
+    href= (button.tag === "a") && button.href
+    id= button.id
+    class= "button"
+    class= (button.mods
+      && ((typeof button.mods === 'string')
+        ? `button--${button.mods}`
+        : button.mods.map((mod) => `button--${mod}`)))
+    class= (button.classIcon
+      && ((typeof button.classIcon === 'string')
+        ? `icon icon--default-mono-${button.classIcon}`
+        : `icon icon--${button.classIcon.type || 'default-mono'}-${button.classIcon.name}`))
+    class= button.class
+    title= button.title
+  )&attributes(attributes)
+    if button.icon && button.icon.position !== 'after'
+      +icon(button.icon.name)(class= button.icon.class)
+    if button.value
+      != button.value
+    if button.icon && button.icon.position === 'after'
+      +icon(button.icon.name)(class= button.icon.class)
+    block

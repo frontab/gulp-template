@@ -1,0 +1,37 @@
+mixin link(param)
+  -
+    const paramDefault = {
+      href: '#',                //- атрибут href для кнопки с tag: "a" (string)
+      id: false,                //- id тега (string)
+      classIcon: false,         //- класс иконки к тегу кнопки [ 'iconName' | { iconName: '', type: [ 'default-mono' | 'default-multi' | ... ] } ]
+      class: false,             //- дополнительные классы для кнопки (string)
+      value: 'Link',            //- текст кнопки (string)
+      mods: false,              //- модификатор стиля кнопки [ string | [string, string] ]
+      icon: false,              //- иконка для кнопки [ false | { class: '', name: '', position: [ 'before' | 'after' ] } ]
+      title: false,             //- значение атрибута title (string)
+    }
+
+    const link = { value, ...paramDefault, ...param}
+
+  a(
+    href= link.href
+    id= link.id
+    class= "link"
+    class= (link.mods
+      && ((typeof link.mods === 'string')
+        ? `link--${link.mods}`
+        : link.mods.map((mod) => `link--${mod}`)))
+    class= (link.classIcon
+      && ((typeof link.classIcon === 'string')
+        ? `icon icon--default-mono-${link.classIcon}`
+        : `icon icon--${link.classIcon.type || 'default-mono'}-${link.classIcon.name}`))
+    class= link.class
+    title= link.title
+  )&attributes(attributes)
+    if link.icon && link.icon.position !== 'after'
+      +icon(link.icon.name)(class= link.icon.class)
+    if link.value
+      != link.value
+    if link.icon && link.icon.position === 'after'
+      +icon(link.icon.name)(class= link.icon.class)
+    block

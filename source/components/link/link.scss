@@ -1,0 +1,36 @@
+.link {
+  // colors
+  --link-color: var(--text-accent);
+  --link-color-hover: var(--text-accent-hover);
+  --link-color-active: var(--text-accent-accent);
+
+  // icons
+  --link-icon-size: 1em;
+
+  // effects
+  --link-transiton: var(--transition-primary);
+
+  // decoration
+  --link-text-decoration: underline;
+
+  display: inline-flex;
+  align-items: center;
+  color: var(--link-color);
+  text-decoration: var(--link-text-decoration);
+  transition: color var(--link-transiton);
+
+  @include hover {
+    --link-color: var(--link-color-hover);
+    --link-text-decoration: none;
+  }
+
+  @include active {
+    --link-color: var(--link-color-active);
+  }
+
+  &.icon::before,
+  .icon {
+    width: var(--link-icon-size);
+    height: var(--link-icon-size);
+  }
+}

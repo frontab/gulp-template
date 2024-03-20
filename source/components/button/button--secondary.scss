@@ -1,0 +1,16 @@
+.button--secondary {
+  // color
+  --button-color: var(--text-accent);
+  --button-color-hover: var(--text-primary-on-color-hover);
+  --button-color-active: var(--text-primary-on-color-hover);
+
+  // background
+  --button-background-color: transparent;
+  --button-background-color-hover: var(--background-accent);
+  --button-background-color-active: var(--background-accent-hover);
+
+  // border
+  --button-border-color: var(--border-accent);
+  --button-border-color-hover: var(--border-accent);
+  --button-border-color-active: var(--border-accent-hover);
+}

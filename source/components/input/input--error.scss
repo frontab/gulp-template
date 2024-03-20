@@ -1,0 +1,7 @@
+.input--error {
+  // colors
+  --input-border-color: var(--border-danger);
+  --input-border-color-hover: var(--border-danger-hover);
+  --input-border-color-active: var(--border-danger-active);
+  --input-border-color-focus: var(--border-danger-active);
+}
