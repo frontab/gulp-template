@@ -6,6 +6,7 @@ import { fontsConvert, fontsBuild, fontsWatch } from './gulp/tasks/fonts';
 import { pugCheckData, pugCheckMixins, pugBuild, pugWatch } from './gulp/tasks/pug';
 import { imagesBuild, imagesWatch } from './gulp/tasks/images';
 import { svgSpriteBuild, svgSpriteWatch } from './gulp/tasks/svg-sprites';
+import { emailsBuild, emailsWatch } from './gulp/tasks/emails';
 
 import config from './gulp/config';
 
@@ -24,6 +25,7 @@ export const build = series(
     fontsBuild,
     imagesBuild,
     svgSpriteBuild,
+    emailsBuild,
   ),
 );
 
@@ -36,5 +38,6 @@ export const dev = series(
     fontsWatch,
     imagesWatch,
     svgSpriteWatch,
+    emailsWatch,
   ),
 );

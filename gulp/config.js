@@ -73,6 +73,12 @@ const config = {
     icons: `${sourceFolder}/config/styles/_icons.scss`,
   },
 
+  emails: {
+    src: `${sourceFolder}/emails/**/*.html`,
+    dest: `${buildFolder}/emails`,
+    watch: `${sourceFolder}/emails/**/*.html`,
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');
