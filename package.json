@@ -12,14 +12,19 @@
     "start": "gulp dev",
     "build": "gulp build",
     "release": "gulp build --release",
-    "prepare": "husky"
+    "prepare": "husky",
+    "eslint": "eslint ./ --color",
+    "eslint:fix": "eslint ./ --fix"
   },
   "lint-staged": {
+    "eslint": "eslint --color",
     "*.pug": "pug-lint"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "del": "^6.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
