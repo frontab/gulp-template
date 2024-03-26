@@ -59,6 +59,12 @@ const config = {
     },
   },
 
+  images: {
+    src: `${sourceFolder}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
+    dest: `${buildFolder}/images`,
+    watch: `${sourceFolder}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');

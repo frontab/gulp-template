@@ -4,6 +4,7 @@ import { serverStart } from './gulp/tasks/server';
 import { copyBuild, copyWatch } from './gulp/tasks/copy';
 import { fontsConvert, fontsBuild, fontsWatch } from './gulp/tasks/fonts';
 import { pugCheckData, pugCheckMixins, pugBuild, pugWatch } from './gulp/tasks/pug';
+import { imagesBuild, imagesWatch } from './gulp/tasks/images';
 
 import config from './gulp/config';
 
@@ -20,6 +21,7 @@ export const build = series(
     copyBuild,
     pugBuild,
     fontsBuild,
+    imagesBuild,
   ),
 );
 
@@ -30,5 +32,6 @@ export const dev = series(
     copyWatch,
     pugWatch,
     fontsWatch,
+    imagesWatch,
   ),
 );
