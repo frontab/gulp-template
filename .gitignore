@@ -2,16 +2,8 @@
 /pre-build/
 /node_modules/
 
-/source/config/pug/_data.pug
-/source/config/pug/_mixins.pug
-/source/config/pug/_fonts.pug
-/source/config/styles/_icons
-/source/config/styles/_icons.scss
-/source/config/styles/_commons.scss
-/source/config/styles/_mixins.scss
-/source/config/styles/_functions.scss
-/source/config/styles/_variables.scss
-/source/config/styles/variables/primitive/_palette.scss
+/source/config/pug/**/_*
+/source/config/styles/**/_*
 
 *.sublime*
 .DS_Store
