@@ -7,6 +7,7 @@ import { pugCheckData, pugCheckMixins, pugBuild, pugWatch } from './gulp/tasks/p
 import { imagesBuild, imagesWatch } from './gulp/tasks/images';
 import { svgSpriteBuild, svgSpriteWatch } from './gulp/tasks/svg-sprites';
 import { emailsBuild, emailsWatch } from './gulp/tasks/emails';
+import { scriptsBuild, scriptsWatch } from './gulp/tasks/scripts';
 
 import config from './gulp/config';
 
@@ -26,6 +27,7 @@ export const build = series(
     imagesBuild,
     svgSpriteBuild,
     emailsBuild,
+    scriptsBuild,
   ),
 );
 
@@ -39,5 +41,6 @@ export const dev = series(
     imagesWatch,
     svgSpriteWatch,
     emailsWatch,
+    scriptsWatch,
   ),
 );

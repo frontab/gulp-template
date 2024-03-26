@@ -79,6 +79,12 @@ const config = {
     watch: `${sourceFolder}/emails/**/*.html`,
   },
 
+  scripts: {
+    src: `${sourceFolder}/pages/**/*.js`,
+    dest: `${buildFolder}/js`,
+    watch: `${sourceFolder}/**/*.js`,
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');
