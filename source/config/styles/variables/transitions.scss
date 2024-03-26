@@ -1,0 +1,10 @@
+:root {
+  // time
+  --transition-time-primary: .2s;
+
+  // function
+  --transition-function-primary: linear;
+
+  // transition
+  --transition-primary: var(--transition-time-primary) var(--transition-function-primary);
+}

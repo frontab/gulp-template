@@ -85,6 +85,42 @@ const config = {
     watch: `${sourceFolder}/**/*.js`,
   },
 
+  styles: {
+    src: `${sourceFolder}/pages/**/*.scss`,
+    dest: `${buildFolder}/css`,
+    watch: `${sourceFolder}/**/*.scss`,
+    mixins: {
+      srcFolder: `${sourceFolder}/config/styles/mixins`,
+      dest: `${sourceFolder}/config/styles/_mixins.scss`,
+      watch: `${sourceFolder}/config/styles/mixins`,
+    },
+    icons: {
+      srcFolder: `${sourceFolder}/config/styles/_icons`,
+      dest: `${sourceFolder}/config/styles/_icons.scss`,
+      watch: `${sourceFolder}/config/styles/_icons`,
+    },
+    variables: {
+      srcFolder: `${sourceFolder}/config/styles/variables`,
+      dest: `${sourceFolder}/config/styles/_variables.scss`,
+      watch: `${sourceFolder}/config/styles/variables`,
+    },
+    commons: {
+      srcFolder: `${sourceFolder}/config/styles/commons`,
+      dest: `${sourceFolder}/config/styles/_commons.scss`,
+      watch: `${sourceFolder}/config/styles/commons`,
+    },
+    palette: {
+      srcFolder: `${sourceFolder}/config/styles/variables/primitive/palette`,
+      dest: `${sourceFolder}/config/styles/variables/primitive/_palette.scss`,
+      watch: `${sourceFolder}/config/styles/variables/primitive/palette`,
+    },
+    components: {
+      srcFolder: `${sourceFolder}/components`,
+      dest: `_index.scss`,
+      watch: `${sourceFolder}/components`,
+    },
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');

@@ -8,6 +8,15 @@ import { imagesBuild, imagesWatch } from './gulp/tasks/images';
 import { svgSpriteBuild, svgSpriteWatch } from './gulp/tasks/svg-sprites';
 import { emailsBuild, emailsWatch } from './gulp/tasks/emails';
 import { scriptsBuild, scriptsWatch } from './gulp/tasks/scripts';
+import {
+  stylesCheckPalette,
+  stylesCheckCommons,
+  stylesCheckVariables,
+  stylesCheckIcons,
+  stylesCheckMixins,
+  stylesBuild,
+  stylesWatch,
+} from './gulp/tasks/styles';
 
 import config from './gulp/config';
 
@@ -19,6 +28,11 @@ export const build = series(
     pugCheckData,
     pugCheckMixins,
     fontsConvert,
+    stylesCheckPalette,
+    stylesCheckCommons,
+    stylesCheckVariables,
+    stylesCheckIcons,
+    stylesCheckMixins,
   ),
   parallel(
     copyBuild,
@@ -28,6 +42,7 @@ export const build = series(
     svgSpriteBuild,
     emailsBuild,
     scriptsBuild,
+    stylesBuild,
   ),
 );
 
@@ -42,5 +57,6 @@ export const dev = series(
     svgSpriteWatch,
     emailsWatch,
     scriptsWatch,
+    stylesWatch,
   ),
 );
