@@ -65,6 +65,14 @@ const config = {
     watch: `${sourceFolder}/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}`,
   },
 
+  svgSprites: {
+    src: `${sourceFolder}/assets/icons`,
+    dest: `${buildFolder}/images`,
+    watch: `${sourceFolder}/assets/icons`,
+    spritesFolder: `${sourceFolder}/config/styles/_icons`,
+    icons: `${sourceFolder}/config/styles/_icons.scss`,
+  },
+
   setEnv() {
     this.isBuild = process.argv.includes('build');
     this.isRelease = process.argv.includes('--release');

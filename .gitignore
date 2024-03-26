@@ -5,6 +5,7 @@
 /source/config/pug/_data.pug
 /source/config/pug/_mixins.pug
 /source/config/pug/_fonts.pug
+/source/config/styles/_icons
 
 *.sublime*
 .DS_Store
